@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Transaction Visualization</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header style="position: relative;">
+    <h1>Transaction Visualizations</h1>
+    <a href="index.html" class="dashboard-btn">Return to Dashboard</a>
+  </header>
+
+  <main class="home-container">
+    <div class="filters">
+      <label for="chartType">Chart Type:</label>
+      <select id="chartType" onchange="renderChart()">
+        <option value="pie">Expense by Payment Mode</option>
+        <option value="pie-desc">Expense by Description</option>
+        <option value="bar-desc">Amount vs Description</option>
+        <option value="bar">Income vs Expense</option>
+      </select>
+
+      <label for="timeFilter">Time Filter:</label>
+      <select id="timeFilter" onchange="renderChart()">
+        <option value="all">All Time</option>
+        <option value="weekly">Last 7 Days</option>
+        <option value="monthly">This Month</option>
+        <option value="yearly">This Year</option>
+      </select>
+    </div>
+
+    <div style="width: 100%; height: 70vh;"><canvas id="chartCanvas"></canvas></div>
+  </main>
+
+  <footer>
+    <p>All rights reserved.</p>
+  </footer>
+
+  <script src="js/visualization.js"></script>
+</body>
+</html>

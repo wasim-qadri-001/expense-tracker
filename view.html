@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>View Transactions</title>
+  <link rel="stylesheet" href="css/view.css" />
+</head>
+
+ <body>
+ <header style="position: relative;">
+  <h1>All Transactions</h1>
+  <a href="index.html" class="dashboard-btn">Return to Dashboard</a>
+</header>
+  <!-- Filters + Search -->
+  <main>
+  <div class="filters">
+    <input type="text" id="searchInput" placeholder="Search description..." />
+
+    <label for="typeFilter">Type:</label>
+    <select id="typeFilter">
+      <option value="">All</option>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+
+    <label for="paymentFilter">Payment:</label>
+    <select id="paymentFilter">
+      <option value="">All</option>
+      <option value="cash">Cash</option>
+      <option value="online">Online</option>
+      <option value="card">Card</option>
+    </select>
+
+    <label for="sortBy">Sort by:</label>
+    <select id="sortBy">
+      <option value="">None</option>
+      <option value="dateAsc">Date ↑</option>
+      <option value="dateDesc">Date ↓</option>
+    </select>
+
+    <button id="applyBtn" onclick="renderTransactions()">Apply Filters</button>
+  </div>
+
+  <!-- Transaction Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Amount</th>
+        <th>Type</th>
+        <th>Payment Mode</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="transactionTableBody"></tbody>
+  </table>
+
+  <!-- Edit Transaction Modal -->
+<div id="editModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeEditModal()">&times;</span>
+    <h2>Edit Transaction</h2>
+    <form id="editForm" onsubmit="updateTransaction(event)">
+      <input type="hidden" id="editIndex" />
+      <input type="date" id="editDate" required />
+      <input type="text" id="editDescription" placeholder="Description" required />
+      <input type="number" id="editAmount" placeholder="Amount" required />
+
+      <select id="editType" required>
+        <option value="">Select Type</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+
+      <select id="editPayment" required>
+        <option value="">Select Payment Mode</option>
+        <option value="cash">Cash</option>
+        <option value="online">Online</option>
+        <option value="card">Card</option>
+      </select>
+
+      <button type="submit" class="btn-edit">Update</button>
+    </form>
+  </div>
+</div>
+</main>
+<footer>
+    <p>All rights reserved.</p>
+</footer>
+
+<script src="js/view.js"></script>
+</body>
+
+
+
+</html>

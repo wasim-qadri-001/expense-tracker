@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Transaction Report</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header style="position: relative;">
+    <h1>Transaction Report</h1>
+    <a href="index.html" class="dashboard-btn">Return to Dashboard</a>
+  </header>
+
+  <main class="home-container">
+    <div class="filters">
+      <label>From:</label>
+      <input type="date" id="startDate" />
+
+      <label>To:</label>
+      <input type="date" id="endDate" />
+
+      <label>Payment Mode:</label>
+      <select id="paymentFilter">
+        <option value="">All</option>
+        <option value="cash">Cash</option>
+        <option value="online">Online</option>
+        <option value="card">Card</option>
+      </select>
+
+      <label>Preset:</label>
+      <select id="preset">
+        <option value="">--None--</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+      </select>
+
+      <button id="applyBtn" onclick="generateReport()">Generate Report</button>
+    </div>
+
+    <div class="summary-box">
+      <p>Total Income: ₹<span id="reportIncome">0</span></p>
+      <p>Total Expense: ₹<span id="reportExpense">0</span></p>
+      <p>Net Balance: ₹<span id="reportBalance">0</span></p>
+    </div>
+  </main>
+
+  <footer style="position: fixed">
+    <p>All rights reserved.</p>
+  </footer>
+
+  <script src="js/report.js"></script>
+</body>
+</html>
