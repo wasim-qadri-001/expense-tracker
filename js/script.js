@@ -1,5 +1,5 @@
 // Set username
-document.getElementById("username").textContent = "Wasim Akram";
+document.getElementById("username").textContent = "User!!";
 
 // Navigation
 function navigate(action) {
